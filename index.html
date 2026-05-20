@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Search Internal Files</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="side-panel">
+      <div class="brand-row">
+        <div class="brand-mark">SIF</div>
+        <div>
+          <h1>Search Internal Files</h1>
+          <p id="scopeName">Finding internal file scope</p>
+        </div>
+      </div>
+
+      <section class="side-section">
+        <div class="section-title">Scan scope</div>
+        <div class="scope-card">
+          <span class="scope-label">Search root</span>
+          <strong id="rootPath">...</strong>
+        </div>
+        <div class="button-row">
+          <button id="scanButton" class="secondary-button" type="button">Refresh scan</button>
+          <button id="rootButton" class="secondary-button" type="button">Open folder</button>
+        </div>
+      </section>
+
+      <section class="side-section">
+        <div class="section-title">Search modes</div>
+        <label class="toggle-row">
+          <input id="exactMode" type="checkbox" checked>
+          <span>
+            <strong>Exact words</strong>
+            <small>Typed phrase</small>
+          </span>
+        </label>
+        <label class="toggle-row">
+          <input id="relatedMode" type="checkbox" checked>
+          <span>
+            <strong>Related phrases</strong>
+            <small>Business terms</small>
+          </span>
+        </label>
+        <label class="toggle-row">
+          <input id="semanticMode" type="checkbox" checked>
+          <span>
+            <strong>Concept match</strong>
+            <small>Term overlap</small>
+          </span>
+        </label>
+      </section>
+
+      <section class="side-section">
+        <div class="section-title">File types</div>
+        <div id="typeFilters" class="type-filter-list"></div>
+      </section>
+    </aside>
+
+    <main class="main-panel">
+      <section class="search-band">
+        <div class="search-copy">
+          <span class="eyebrow">Sandeep Taterway OneDrive index</span>
+          <h2>Search internal documents, decks, sheets, PDFs, and notes.</h2>
+          <p id="scanLine">Starting scan...</p>
+        </div>
+        <form id="searchForm" class="search-form">
+          <input id="queryInput" type="search" placeholder="Try GTM strategy, pricing model, sales funnel..." autocomplete="off">
+          <button class="primary-button" type="submit">Search</button>
+        </form>
+        <div class="example-row" aria-label="Example searches">
+          <button type="button" data-example="GTM strategy">GTM strategy</button>
+          <button type="button" data-example="pricing model">Pricing model</button>
+          <button type="button" data-example="sales funnel">Sales funnel</button>
+        </div>
+      </section>
+
+      <section class="metric-grid" aria-live="polite">
+        <article>
+          <strong id="indexedMetric">0</strong>
+          <span>readable files</span>
+        </article>
+        <article>
+          <strong id="scannedMetric">0</strong>
+          <span>files checked</span>
+        </article>
+        <article>
+          <strong id="resultMetric">0</strong>
+          <span>matching files</span>
+        </article>
+        <article>
+          <strong id="snippetMetric">0</strong>
+          <span>snippets</span>
+        </article>
+      </section>
+
+      <section class="activity-panel">
+        <div>
+          <span class="activity-kicker">Current activity</span>
+          <strong id="activityText">Waiting for scan</strong>
+        </div>
+        <div id="typeBreakdown" class="type-breakdown"></div>
+      </section>
+
+      <div id="notice" class="notice"></div>
+      <section id="results" class="results"></section>
+    </main>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
